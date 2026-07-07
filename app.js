@@ -41,3 +41,21 @@ document.querySelectorAll('img').forEach(img=>{
     img.src=fallbackFor(img.getAttribute('src'), img.getAttribute('alt'));
   });
 });
+
+
+// V13 mobile menu safeguards
+(function(){
+  const menu=document.querySelector('.menu');
+  const nav=document.querySelector('.navlinks');
+  if(menu && nav){
+    menu.setAttribute('aria-label','Abrir menú');
+    menu.addEventListener('click',()=>{
+      nav.classList.toggle('open');
+      document.body.classList.toggle('menu-open',nav.classList.contains('open'));
+    });
+    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+      nav.classList.remove('open');
+      document.body.classList.remove('menu-open');
+    }));
+  }
+})();
