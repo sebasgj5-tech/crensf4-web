@@ -1,1 +1,1 @@
-Versión completa con menú móvil lateral definitivo. Todas las imágenes están dentro de assets/. Sustituir el contenido del repositorio conservando .git.
+Base limpia: todas las imágenes visibles son locales en assets/images/provisional. No depende de loremflickr ni de imágenes externas. Copiar todo el contenido en crensf4-web, reemplazando archivos.
