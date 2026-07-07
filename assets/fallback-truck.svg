@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#34220b"/><stop offset="1" stop-color="#171717"/></linearGradient>
+    <pattern id="p" width="72" height="72" patternUnits="userSpaceOnUse"><path d="M0 72L72 0" stroke="rgba(255,255,255,.08)" stroke-width="2"/></pattern>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#g)"/>
+  <rect width="1600" height="1000" fill="url(#p)"/>
+  <circle cx="1240" cy="220" r="230" fill="#f3bd17" opacity=".18"/>
+  <circle cx="270" cy="830" r="310" fill="#fff" opacity=".07"/>
+  <text x="90" y="790" fill="white" font-family="Arial,Helvetica,sans-serif" font-size="88" font-weight="800">Logística y expedición</text>
+  <text x="94" y="865" fill="#f3bd17" font-family="Arial,Helvetica,sans-serif" font-size="32" font-weight="700" letter-spacing="4">#f3bd17 · Provisional</text>
+</svg>
