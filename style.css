@@ -327,3 +327,19 @@ section,header,footer,main{max-width:100vw;}
     color:rgba(255,255,255,.88)!important;
   }
 }
+
+@media(max-width:1000px){
+  body.menu-open::before{
+    z-index:1!important;
+    pointer-events:none!important;
+  }
+
+  .navlinks{
+    z-index:9999!important;
+    pointer-events:auto!important;
+  }
+
+  .menu{
+    z-index:10000!important;
+  }
+}
