@@ -625,3 +625,118 @@ section,header,footer,main{max-width:100vw;}
     transform:translateY(-2px);
   }
 }
+
+/* MEGA MENU PIENSOS - ESCRITORIO FASE 1 */
+@media(min-width:1001px){
+  .nav-item{
+    position:relative!important;
+  }
+
+  .nav-item .dropdown{
+    display:grid!important;
+    grid-template-columns:repeat(3,1fr)!important;
+    gap:.9rem!important;
+    position:absolute!important;
+    top:calc(100% + 1.35rem)!important;
+    left:50%!important;
+    transform:translateX(-50%) translateY(14px)!important;
+    width:760px!important;
+    min-width:760px!important;
+    padding:5.2rem 1.4rem 1.4rem!important;
+    border-radius:28px!important;
+    background:linear-gradient(180deg,rgba(18,18,18,.98),rgba(9,9,9,.98))!important;
+    border:1px solid rgba(243,189,23,.28)!important;
+    box-shadow:0 35px 100px rgba(0,0,0,.55)!important;
+    color:#fff!important;
+    opacity:0!important;
+    visibility:hidden!important;
+    pointer-events:none!important;
+    transition:.25s ease!important;
+    backdrop-filter:blur(18px)!important;
+  }
+
+  .nav-item .dropdown::before{
+    content:"NUESTROS PIENSOS";
+    position:absolute;
+    top:1.3rem;
+    left:1.4rem;
+    right:1.4rem;
+    padding-bottom:1rem;
+    border-bottom:1px solid rgba(255,255,255,.12);
+    color:var(--yellow);
+    font-size:.8rem;
+    font-weight:900;
+    letter-spacing:.18em;
+  }
+
+  .nav-item:hover .dropdown{
+    opacity:1!important;
+    visibility:visible!important;
+    pointer-events:auto!important;
+    transform:translateX(-50%) translateY(0)!important;
+  }
+
+  .dropdown a{
+    position:relative!important;
+    min-height:112px!important;
+    padding:1.15rem 1rem 1rem!important;
+    border-radius:18px!important;
+    background:rgba(255,255,255,.055)!important;
+    border:1px solid rgba(255,255,255,.11)!important;
+    color:#fff!important;
+    font-size:1.05rem!important;
+    font-weight:900!important;
+    transition:.22s ease!important;
+  }
+
+  .dropdown a::after{
+    display:block;
+    margin-top:.55rem;
+    color:rgba(255,255,255,.62);
+    font-size:.82rem;
+    font-weight:700;
+    line-height:1.35;
+  }
+
+  .dropdown a:nth-child(1)::after{content:"Broilers · Ponedoras · Reproductoras";}
+  .dropdown a:nth-child(2)::after{content:"Destete · Cebo · Reproductoras";}
+  .dropdown a:nth-child(3)::after{content:"Carne · Leche · Terneros";}
+  .dropdown a:nth-child(4)::after{content:"Corderos · Rebaños · Campo";}
+  .dropdown a:nth-child(5)::after{content:"Cabras · Cabritos · Producción";}
+  .dropdown a:nth-child(6)::after{content:"Caballos · Mantenimiento · Deporte";}
+
+  .dropdown a:hover{
+    background:rgba(243,189,23,.13)!important;
+    border-color:rgba(243,189,23,.45)!important;
+    color:var(--yellow)!important;
+    transform:translateY(-3px);
+  }
+}
+
+/* PUENTE ENTRE PIENSOS Y EL MEGA MENU */
+@media(min-width:1001px){
+  .nav-item::after{
+    content:"";
+    position:absolute;
+    top:100%;
+    left:-40px;
+    right:-40px;
+    height:30px;
+  }
+
+  .nav-item .dropdown{
+    top:calc(100% + .7rem)!important;
+  }
+}
+
+/* CORRECCION DEFINITIVA DEL HUECO DEL MEGA MENU */
+@media(min-width:1001px){
+  .nav-item{
+    padding-bottom:24px!important;
+    margin-bottom:-24px!important;
+  }
+
+  .nav-item .dropdown{
+    top:100%!important;
+  }
+}
