@@ -40,33 +40,39 @@ if(menuBtn && navlinks){
   });
 }
 
-// Ajustes específicos de la página de Logística.
-// Crens F4 coordina las expediciones con empresas transportistas colaboradoras;
-// estos textos e imágenes evitan dar a entender que existe una flota propia.
 if(location.pathname.endsWith('/logistica.html') || location.pathname.endsWith('logistica.html')){
-  const hero=document.querySelector('.page-hero');
-  const heroImg=hero?.querySelector(':scope > img');
-  const heroTitle=hero?.querySelector('h1');
-  const heroCopy=hero?.querySelector('.hero-copy');
+  // PORTADA: red de carreteras / conectividad, para comunicar coordinación logística
+  // sin sugerir que Crens F4 tenga flota propia.
+  const heroTitle=[...document.querySelectorAll('h1')].find(el=>el.textContent.includes('Logística coordinada'));
+  const hero=heroTitle?.closest('section') || document.querySelector('.page-hero,.hero');
+  const heroImg=hero?.querySelector('img');
+  const heroText=[...hero?.querySelectorAll('p')||[]].find(el=>el.textContent.trim().length>20);
 
   if(heroImg){
-    heroImg.src='https://img.feedstrategy.com/files/base/wattglobalmedia/all/image/2019/08/fs.Walinga-remote-control.png?auto=format%2Ccompress&h=900&q=85&w=1800';
-    heroImg.alt='Camión de pienso a granel realizando una entrega en silos de una explotación ganadera';
-    heroImg.onerror=null;
+    heroImg.src='https://imagenes.cope.es/files/og_thumbnail/uploads/2024/07/22/669e51a99c0e0.jpeg';
+    heroImg.alt='Red de carreteras y transporte junto a una zona industrial';
+    heroImg.style.objectPosition='center 48%';
   }
   if(heroTitle) heroTitle.textContent='Logística coordinada, entregas eficientes.';
-  if(heroCopy) heroCopy.textContent='Coordinamos cada expedición con empresas transportistas para adaptar las entregas a las necesidades de nuestros clientes.';
+  if(heroText) heroText.textContent='Coordinamos cada expedición con empresas transportistas para adaptar las entregas a las necesidades de nuestros clientes.';
 
-  const feature=document.querySelector('.section-red .wide-feature');
+  // BLOQUE DISTRIBUCIÓN: entrega de pienso a granel en silos de explotación.
+  const featureEyebrow=[...document.querySelectorAll('.eyebrow,span,p')].find(el=>el.textContent.trim().toUpperCase().includes('DISTRIBUCIÓN COORDINADA'));
+  const feature=featureEyebrow?.closest('.wide-feature') || featureEyebrow?.closest('section') || document.querySelector('.section-red .wide-feature');
   const featurePhoto=feature?.querySelector('.photo');
-  const featureEyebrow=feature?.querySelector('.eyebrow');
   const featureTitle=feature?.querySelector('h2');
-  const featureCopy=feature?.querySelector('.lead');
+  const featureCopy=[...feature?.querySelectorAll('p')||[]].find(el=>el.textContent.includes('Coordinamos'));
 
   if(featurePhoto){
-    featurePhoto.style.backgroundImage="url('https://storageatlasengagepdcus.blob.core.windows.net/atlas/all-media/alliedcoopadams/feed/features/feed-services.jpg')";
+    featurePhoto.style.backgroundImage="url('https://img.feedstrategy.com/files/base/wattglobalmedia/all/image/2019/08/fs.Walinga-remote-control.png?auto=format%2Ccompress&h=900&q=85&w=1600')";
+    featurePhoto.style.backgroundPosition='center';
+    featurePhoto.style.backgroundSize='cover';
   }
-  if(featureEyebrow) featureEyebrow.textContent='Distribución coordinada';
   if(featureTitle) featureTitle.textContent='Del pedido a la explotación.';
   if(featureCopy) featureCopy.textContent='Coordinamos las cargas y expediciones con empresas transportistas para adaptar cada entrega a las necesidades del cliente y de la explotación.';
+
+  // Eliminar cualquier etiqueta provisional que quede en la página.
+  [...document.querySelectorAll('body *')].forEach(el=>{
+    if(el.children.length===0 && el.textContent.trim().toUpperCase()==='FOTO PROVISIONAL') el.remove();
+  });
 }
